@@ -1,1 +1,10 @@
+.DS_Store
+.nextflow*
+nextflow
+results
+*.sif
+work
+environments/.DS_Store
+
+# A place to store site specific configs
 site-conf/
