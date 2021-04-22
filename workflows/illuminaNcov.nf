@@ -113,7 +113,7 @@ workflow sequenceAnalysis {
 
       writeQCSummaryCSV(qc.header.concat(qc.pass).concat(qc.fail).toList())
       
-      pangolinTyping(makeConsensus.out)
+      pangolinTyping(makeConsensus.out.consensus_fasta)
 
       collateSamples(qc.pass.map{ it[0] }
                            .join(makeConsensus.out, by: 0)
