@@ -62,17 +62,22 @@ process readMapping {
     label 'largecpu'
 
     publishDir "${params.outdir}/${task.process.replaceAll(":","_")}", pattern: "${sampleName}.sorted.bam", mode: 'copy'
+    publishDir "${params.outdir}/${task.process.replaceAll(":","_")}", pattern: "*.txt", mode: 'copy'
 
     input:
         tuple sampleName, path(forward), path(reverse), path(ref), path("*")
 
     output:
-        tuple sampleName, path("${sampleName}.sorted.bam")
+        tuple sampleName, path("${sampleName}.sorted.bam"), emit: map
+        path "*.txt", emit: log
 
     script:
       """
       bwa mem -t ${task.cpus} ${ref} ${forward} ${reverse} | \
       samtools sort -o ${sampleName}.sorted.bam
+      #picard CollectWgsMetrics -I ${sampleName}.sorted.bam -O ${sampleName}.sorted.metrics.txt -R ${ref} \
+      --COVERAGE_CAP 1000000 --LOCUS_ACCUMULATION_CAP 1000000 --MAX_RECORDS_IN_RAM 50000
+      touch ${sampleName}_override.txt
       """
 }
 
@@ -183,3 +188,4 @@ process cramToFastq {
         rm tmp.bam
         """
 }
+
