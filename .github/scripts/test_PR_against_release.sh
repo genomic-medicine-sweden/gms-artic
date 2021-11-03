@@ -27,7 +27,7 @@ ln -s ../*.sif ./
 echo Nextflow run previous release in --illumina mode.. >> ../artifacts/test_artifact.log
 NXF_VER=21.04.0 nextflow run main.nf \
        -profile singularity \
-       --directory .github/data/fastqs/ \
+       --directory $PWD/../.github/data/fastqs/ \
        --illumina \
        --prefix "test"
 cp .nextflow.log ../artifacts/previous_release.nextflow.log
