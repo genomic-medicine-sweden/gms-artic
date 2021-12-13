@@ -51,8 +51,8 @@ process versions {
         picard CollectWgsMetrics -version > version_picard.txt 2>&1 || true
         python --version > version_python.txt
         samtools --version > version_samtools.txt
-        snakemake -v > version_snakemake.txt
         scorpio -v > version_scorpio.txt
+        snakemake -v > version_snakemake.txt
         trim_galore -v > version_trim_galore.txt
         usher --version > version_usher.txt
         get_versions.py ${params.prefix}_versions.csv
@@ -75,8 +75,8 @@ process versions {
         porechop --version > version_porechop.txt
         python --version > version_python.txt
         samtools --version > version_samtools.txt
-        snakemake -v > version_snakemake.txt
         scorpio -v > version_scorpio.txt
+        snakemake -v > version_snakemake.txt
         get_versions.py ${params.prefix}_versions.csv
         """
 }

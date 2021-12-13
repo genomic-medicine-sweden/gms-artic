@@ -26,8 +26,8 @@ version_regex = {
     "porechop": r"(\S+)",
     "python": r"Python (\S+)",
     "samtools": r"samtools (\S+)",
-    "snakemake": r"(\S+)",
     "scorpio": r"scorpio (\S+)",
+    "snakemake": r"(\S+)",
     "trim_galore": r"version (\S+)",
     "usher": r"UShER \((\S+)\)"
 }
