@@ -33,7 +33,7 @@ version_regex = {
 }
 # Create csv file for all versions
 output = sys.argv[1]
-with open(output, "a") as out:
+with open(output, "w") as out:
     for tool, regex in version_regex.items():
         # Search for version number
         version_file = "version_{}.txt".format(tool)
