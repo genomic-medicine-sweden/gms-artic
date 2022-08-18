@@ -39,7 +39,6 @@ process versions {
         bcftools -v > version_bcftools.txt
         bwa > version_bwa.txt 2>&1 || true
         fastqc -v > version_fastqc.txt
-        gofasta -v > version_gofasta.txt
         freebayes --version > version_freebayes.txt
         ivar version > version_ivar.txt
         multiqc --version > version_multiqc.txt
