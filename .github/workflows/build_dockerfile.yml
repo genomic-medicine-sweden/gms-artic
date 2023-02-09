@@ -10,7 +10,7 @@ jobs:
   get-version:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v2
+     - uses: actions/checkout@v3
      - name: Get current date
        id: date
        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
@@ -51,17 +51,17 @@ jobs:
        run: echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
 
      - name: Login to Docker Hub
-       uses: docker/login-action@v1
+       uses: docker/login-action@v3
        with:
          username: ${{ secrets.DOCKER_HUB_USERNAME }}
          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
      - name: Set up Docker Buildx
        id: buildx
-       uses: docker/setup-buildx-action@v1
+       uses: docker/setup-buildx-action@v3
 
      - name: Check out pipeline code
-       uses: docker/build-push-action@v2
+       uses: docker/build-push-action@v3
        with:
          context: ./
          file: environments/illumina/Dockerfile
