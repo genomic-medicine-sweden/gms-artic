@@ -114,7 +114,7 @@ workflow sequenceAnalysis {
 
       readMapping(readTrimming.out.trim.combine(ch_preparedRef))
 
-      flagStat(readMapping.out.combine(ch_bedFile))
+      flagStat(readMapping.out)
 
       trimPrimerSequences(readMapping.out.combine(ch_bedFile))
 
