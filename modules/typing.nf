@@ -8,7 +8,7 @@ process typeVariants {
     publishDir "${params.outdir}/${task.process.replaceAll(":","_")}/typing", pattern: "${sampleName}.typing.csv", mode: 'copy'
 
     input:
-    tuple sampleName, path(variants), path(gff), path(ref), path(yaml)
+    tuple val(sampleName), path(variants), path(gff), path(ref), path(yaml)
 
     output:
     path "${sampleName}.variants.csv", optional: true, emit: variants_csv
@@ -116,8 +116,8 @@ process nextclade {
     tuple val(sampleName), path(consensus_fasta)
 
     output:
-    tuple(sampleName, path("${sampleName}_tree.json"),
-    path("${sampleName}.tsv"),path("${sampleName}.json"))
+    tuple val(sampleName), path("${sampleName}_tree.json"),
+    path("${sampleName}.tsv"), path("${sampleName}.json")
 
     script:
     """
