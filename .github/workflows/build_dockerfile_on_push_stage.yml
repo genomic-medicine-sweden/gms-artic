@@ -1,6 +1,7 @@
-name: Build and publish docker images on push to master
+name: Build and publish docker images on push
 
 on: [push]
+
 jobs:
   docker-image-push-illumina:
     runs-on: ubuntu-latest
