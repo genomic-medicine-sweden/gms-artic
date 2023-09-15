@@ -1,4 +1,4 @@
-name: Update docker for gms-artic-pangolin
+name: Build and publish pangolin docker image for master
 
 on:
  schedule:

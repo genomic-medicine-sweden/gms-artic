@@ -1,4 +1,4 @@
-name: Update docker for gms-artic-pangolin-stage
+name: Build and publish pangolin docker image on push for tests
 
 on: [push]
 
