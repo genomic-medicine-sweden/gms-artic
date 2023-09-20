@@ -16,7 +16,6 @@ dependencies:
   - fastqc=0.11.9
   - rich=12.6.0
   - multiqc=1.11
-  - pycoQC=2.5.2
   - pip:
       - pandas >= 1.1
       - numpy == 1.21.0
