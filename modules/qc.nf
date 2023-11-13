@@ -92,7 +92,7 @@ process statsInsert {
     mkdir ./tmp
     if [[ \$( samtools view -F 12 ${bam} | cut -f1 | sort -T ./tmp | uniq -c | awk '\$1 > 1 { count++ } END { print count }' ) > 0 ]]
     then
-       picard CollectInsertSizeMetrics I=${bam} O=${sampleName}_insert_size.metrics.txt \
+       picard ${params.picardJavaSettings} CollectInsertSizeMetrics I=${bam} O=${sampleName}_insert_size.metrics.txt \
        H=${sampleName}_insert_size.distribution.pdf \
        TMP_DIR=${params.tmpdir}
     else
@@ -114,7 +114,7 @@ process statsAlignment {
     path "${sampleName}_alignment.metrics.txt"
 
     """
-    picard CollectAlignmentSummaryMetrics R=${ref} I=${bam} O=${sampleName}_alignment.metrics.txt
+    picard ${params.picardJavaSettings} CollectAlignmentSummaryMetrics R=${ref} I=${bam} O=${sampleName}_alignment.metrics.txt
     """
 }
 
