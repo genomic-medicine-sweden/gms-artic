@@ -21,7 +21,7 @@ include {versions} from '../modules/analysis.nf'
 include {pangoversions} from '../modules/analysis.nf'
 include {fastqcNanopore} from '../modules/qc.nf'
 include {multiqcNanopore} from '../modules/qc.nf'
-include {pycoqc} from '../modules/qc.nf'
+//include {pycoqc} from '../modules/qc.nf'
 
 include {bamToCram} from '../modules/out.nf'
 
@@ -46,7 +46,7 @@ workflow sequenceAnalysisNanopolish {
       
       multiqcNanopore(fastqcNanopore.out.zip)
       
-      pycoqc(ch_seqSummary)
+      //pycoqc(ch_seqSummary)
 
       articDownloadScheme()
 
