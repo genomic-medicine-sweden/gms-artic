@@ -125,6 +125,7 @@ process nextclade {
     nextclade dataset get --name ${params.nextcladeData} --output-dir 'data/${params.nextcladeData}'
     nextclade run \
         --input-dataset data/${params.nextcladeData} \
+        --output-fasta ${sampleName}_aln.fasta
         --output-tree ${sampleName}_tree.json \
         --output-tsv ${sampleName}.tsv \
         --output-json ${sampleName}.json \
