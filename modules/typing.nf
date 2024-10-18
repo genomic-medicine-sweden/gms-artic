@@ -124,12 +124,12 @@ process nextclade {
     echo \$(nextclade --version 2>&1) > nextclade_version.txt
     nextclade dataset get --name ${params.nextcladeData} --output-dir 'data/${params.nextcladeData}'
     nextclade run \
+        --input-fasta ${consensus_fasta}
         --input-dataset data/${params.nextcladeData} \
         --output-fasta ${sampleName}_aln.fasta
         --output-tree ${sampleName}_tree.json \
         --output-tsv ${sampleName}.tsv \
-        --output-json ${sampleName}.json \
-        --input-fasta ${consensus_fasta}
+        --output-json ${sampleName}.json
     """
 
 }
