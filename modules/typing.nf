@@ -117,7 +117,7 @@ process nextclade {
 
     output:
     tuple val(sampleName), path("${sampleName}_tree.json"),
-    path("${sampleName}.tsv"), path("${sampleName}.json")
+    path("${sampleName}.tsv"), path("${sampleName}.json"), path("${sampleName}_aln.fasta")
 
     script:
     """
