@@ -117,18 +117,19 @@ process nextclade {
 
     output:
     tuple val(sampleName), path("${sampleName}_tree.json"),
-    path("${sampleName}.tsv"), path("${sampleName}.json")
+    path("${sampleName}.tsv"), path("${sampleName}.json"), path("${sampleName}_aln.fasta")
 
     script:
     """
     echo \$(nextclade --version 2>&1) > nextclade_version.txt
     nextclade dataset get --name ${params.nextcladeData} --output-dir 'data/${params.nextcladeData}'
     nextclade run \
+        --input-fasta ${consensus_fasta} \
         --input-dataset data/${params.nextcladeData} \
+        --output-fasta ${sampleName}_aln.fasta \
         --output-tree ${sampleName}_tree.json \
         --output-tsv ${sampleName}.tsv \
-        --output-json ${sampleName}.json \
-        ${consensus_fasta}
+        --output-json ${sampleName}.json
     """
 
 }
