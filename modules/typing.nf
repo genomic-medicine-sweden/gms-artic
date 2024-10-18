@@ -126,7 +126,7 @@ process nextclade {
     nextclade run \
         --input-fasta ${consensus_fasta} \
         --input-dataset data/${params.nextcladeData} \
-        --output-fasta ${sampleName}_aln.fasta
+        --output-fasta ${sampleName}_aln.fasta \
         --output-tree ${sampleName}_tree.json \
         --output-tsv ${sampleName}.tsv \
         --output-json ${sampleName}.json
