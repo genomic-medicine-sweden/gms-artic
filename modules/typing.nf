@@ -125,8 +125,9 @@ process nextclade {
     nextclade dataset get --name ${params.nextcladeData} --output-dir 'data/${params.nextcladeData}'
     nextclade run \
         --input-dataset data/${params.nextcladeData} \
-        --output-all ${sampleName} \
+        --output-tree ${sampleName}_tree.json \
+        --output-tsv ${sampleName}.tsv \
+        --output-json ${sampleName}.json \
         ${consensus_fasta} 
     """
-
 }
