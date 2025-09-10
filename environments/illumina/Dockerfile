@@ -11,7 +11,7 @@ RUN /opt/conda/bin/conda update conda && \
 
 FROM debian:buster-slim
 RUN apt-get update && \
-apt-get install -y git procps && \
+apt-get install -y git procps bash && \
 apt-get clean -y
 COPY --from=condabuild /opt/conda/envs/artic-ncov2019-illumina /opt/conda/envs/artic-ncov2019-illumina
 ENV PATH=/opt/conda/envs/artic-ncov2019-illumina/bin:$PATH
