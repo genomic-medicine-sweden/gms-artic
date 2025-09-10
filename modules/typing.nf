@@ -128,7 +128,6 @@ process nextclade {
         --output-tree ${sampleName}_tree.json \
         --output-tsv ${sampleName}.tsv \
         --output-json ${sampleName}.json \
-        ${consensus_fasta}
+        ${consensus_fasta} 
     """
-
 }
