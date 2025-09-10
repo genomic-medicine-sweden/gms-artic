@@ -7,6 +7,11 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+  actions: write
+  packages: read
+
 jobs:
   get-version:
     runs-on: ubuntu-latest
@@ -85,10 +90,6 @@ jobs:
   keepalive-job:
     name: Keepalive Workflow
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      actions: write
-      packages: read
     steps:
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@v2
