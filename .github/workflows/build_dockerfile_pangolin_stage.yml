@@ -1,6 +1,6 @@
 name: Build and publish pangolin docker image on push for tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   get-version:
