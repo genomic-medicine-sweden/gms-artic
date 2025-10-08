@@ -85,8 +85,6 @@ jobs:
   keepalive-job:
     name: Keepalive Workflow
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: gautamkrishnar/keepalive-workflow@v2
+      - name: Keep workflow active
+        run: echo "Keepalive ping at $(date)"
