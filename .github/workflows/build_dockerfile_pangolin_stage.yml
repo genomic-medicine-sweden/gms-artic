@@ -1,6 +1,6 @@
 name: Build and publish pangolin docker image on push for tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   get-version:
@@ -76,12 +76,3 @@ jobs:
           #Push to dockerhub for pangolin with specific requirements
           docker image push genomicmedicinesweden/gms-artic-pangolin-stage:latest
           docker image push genomicmedicinesweden/gms-artic-pangolin-stage:${{ steps.date.outputs.date }}-p-${REPO_VER}-d-${pangolin_data_VER}-c-${constellations_VER}-s-${scorpio_VER}
-
-  keepalive-job:
-    name: Keepalive Workflow
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - uses: actions/checkout@v2
-      - uses: gautamkrishnar/keepalive-workflow@v2
