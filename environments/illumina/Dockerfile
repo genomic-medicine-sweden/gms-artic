@@ -9,10 +9,8 @@ RUN /opt/conda/bin/conda update conda && \
 /opt/conda/bin/conda update mamba -c conda-forge && \
 /opt/conda/bin/mamba env create -f /environment.yml
 
-FROM debian:bullseye-slim
-RUN apt-get update && \
-apt-get install -y git procps && \
-apt-get clean -y 
+FROM alpine:3.11.5 
+RUN apk add --no-cache git procps bash
 COPY --from=condabuild /opt/conda/envs/artic-ncov2019-illumina /opt/conda/envs/artic-ncov2019-illumina
 ENV PATH=/opt/conda/envs/artic-ncov2019-illumina/bin:$PATH
 ENV LC_ALL C.UTF-8
