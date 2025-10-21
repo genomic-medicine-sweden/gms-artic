@@ -57,6 +57,8 @@ RUN sed -i "s|usher.*|usher=${USHER_VER}|" /pangolin/environment.yml && \
     sed -i "s|scorpio.git|scorpio.git@${SCORPIO_VER}|" /pangolin/environment.yml && \
     sed -i "s|pangolin-data.git|pangolin-data.git@${PANGOLIN_DATA_VER}|" /pangolin/environment.yml && \
     sed -i "s|constellations.git|constellations.git@${CONSTELLATIONS_VER}|" /pangolin/environment.yml && \
+    sed -i "12 a\  - pulp=2.7.0" /pangolin/environment.yml && \
+    sed -i '/.*defaults/d' /pangolin/environment.yml && \
     micromamba create -n pangolin -y -f /pangolin/environment.yml && \
     micromamba clean -a -y -f
 
