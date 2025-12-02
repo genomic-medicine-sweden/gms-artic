@@ -1,0 +1,32 @@
+profiles {
+ local {
+  process.executor = 'local'
+  process.time = '15m'
+  process.memory = '2 GB'
+  process.cpus = 2
+  process.errorStrategy = 'retry'
+  process.maxRetries = 1
+ }
+}
+process {
+ withLabel: largecpu {
+  cpus = 4
+ }
+ withLabel: largemem {
+  memory = '6 GB'
+ }
+ withName: pangolinTyping {
+  cpus = 2
+  memory = '4 GB'
+ }
+ withName: makeReport {
+  cpus = 2
+  memory = '8 GB'
+  time = '5m'
+ }
+ withName: makeQCCSV {
+  cpus = 4
+  memory = '8 GB'
+  time = '20m'
+ }
+}
