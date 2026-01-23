@@ -1,6 +1,6 @@
 name: Build and publish docker images on push for tests
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   docker-image-push-illumina:
